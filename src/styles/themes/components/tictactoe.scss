@@ -1,0 +1,68 @@
+.tictactoe{
+    @include Background("./../../images/tictactoe.jpg");  
+    width: 100vw;
+    height: 100vh;
+    color: white;
+    text-align: center;
+    font-family: $f-JustMeAgain;
+    position: relative;
+    padding-top: 5%;
+
+    h1{
+        width: 100%;
+        font-size: pxToRem(70);
+        margin: 0;
+    }
+}
+
+.board{
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: 0fr 0fr 0fr;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.tile{
+    width: 100px;
+    height: 100px;
+    border: 2px solid white;
+    font-size: pxToRem(60);
+    cursor: pointer;
+}
+
+.announce{
+    font-size: pxToRem(40);
+    margin-top: 2%;
+}
+
+.reset{
+    background: none;
+    border: none;
+    color: white;
+    font-size: pxToRem(50);
+    cursor: pointer;
+    margin-top: 1%;
+
+    &:hover{
+        transform: scale(1.2);
+    }
+}
+
+@media only screen and (max-width: 900px){
+    .tictactoe{
+        padding-top: 8%;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .tictactoe{
+        padding-top: 12%;
+    }
+}
+
+@media only screen and (max-width: 470px){
+    .tictactoe{
+        padding-top: 20%;
+    }
+}

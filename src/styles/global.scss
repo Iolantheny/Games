@@ -1,0 +1,39 @@
+@import "./fonts.scss";
+@import "./mixins.scss";
+@import "./normalize.scss";
+@import "./variables.scss";
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+a{
+    text-decoration: none;
+}
+
+.link-back{
+    text-decoration: none;
+    color: white;
+    font-size: pxToRem(60);
+    top: 5%;
+    left: 5%;
+    position: absolute;
+
+    &:hover{
+        transform: scale(1.1);
+    }
+
+    &:hover::before{
+        content: "❮";
+    }
+}
+
+.black{
+    color: black;
+}

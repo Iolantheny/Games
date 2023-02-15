@@ -1,0 +1,209 @@
+.hangman {
+    @include Background("./../../images/hangman.png");  
+    width: 100vw;
+    min-height: 100vh;
+    padding: 4% 3% 0;
+    font-family: $f-Bungee;
+    @include Center();
+    @include Flex;
+    flex-wrap: wrap;
+    position: relative;
+
+    &__bottom {
+      height: 8px;
+      width: 200px;
+      background-color: black;
+    }
+
+    &__gallows{
+      height: 300px;
+      width: 8px;
+      background-color: black;
+      margin-left: 100px;
+    }
+
+    &__top{
+      height: 8px;
+      width: 180px;
+      background-color: black;
+      margin-left: 100px;
+    }
+
+    &__hang{
+      height: 50px;
+      width: 8px;
+      background-color: black;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    &__head{
+      height: 40px;
+      width: 40px;
+      border-radius: 100%;
+      border: 8px solid black;
+      position: absolute;
+      top: 48px;
+      right: -17px;
+    }
+
+    &__body{
+      height: 100px;
+      width: 8px;
+      background-color: black;
+      position: absolute;
+      top: 80px;
+      right: 0;
+    }
+
+    &__larm{
+      height: 8px;
+      width: 70px;
+      background-color: black;
+      position: absolute;
+      top: 110px;
+      right: 8px;
+      rotate: 30deg;
+      transform-origin: right bottom;
+    }
+
+    &__rarm{
+      height: 8px;
+      width: 70px;
+      background-color: black;
+      position: absolute;
+      top: 110px;
+      right: -70px;
+      rotate: -30deg;
+      transform-origin: left bottom;
+    }
+
+    &__lleg{
+      height: 8px;
+      width: 70px;
+      background-color: black;
+      position: absolute;
+      top: 225px;
+      right: -40px;
+      rotate: 50deg;
+      transform-origin: right bottom;
+    }
+
+    &__rleg{
+      height: 8px;
+      width: 70px;
+      background-color: black;
+      position: absolute;
+      top: 225px;
+      right: -22px;
+      rotate: -50deg;
+      transform-origin: left bottom;
+    }
+}
+
+.gallows{
+  position: relative;
+  margin: 3%;
+}
+
+.status{
+    position: absolute;
+    font-size: 200%;
+    top: 5%;
+    left: 40%;
+    color: red;
+  }
+
+.word__contener{
+  display: flex;
+  gap: 2%;
+  font-size: 500%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  font-family: monospace;
+  margin: 5% auto;
+  justify-content: center;
+}
+  
+.word__letter{
+  border-bottom: 8px solid black;
+  margin: 5%;
+}
+
+.keyboard__contener{
+  flex-basis: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+  align-self: stretch;
+  gap: 2%;
+  margin: 2%;
+}
+  
+.keyboard__btn{
+  width: 100%;
+  border: 5px solid black;
+  background: none;
+  aspect-ratio: 0.4 / 0.4;
+  margin: 8%;
+  cursor: pointer;
+  font-size: 200%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  color: black;
+  background-color: $c-WildWillow;
+}
+  
+.active{
+  background-color: $c-Crete;
+  cursor: auto;
+}
+  
+.inactive{
+  opacity: 0.3;
+  color: white;
+  cursor: auto;
+}
+  
+.keyboard__btn:hover:not(:disabled),
+.keyboard__btn:focus:not(:disabled){
+  background-color: $c-Coriander;
+}
+
+@media only screen and (max-width: 800px){
+  .gallows{
+    margin-top: 15%;
+    margin-left: 0;
+  }
+
+  .word__contener{
+    flex-basis: 100%;
+    margin: 5% 10%;
+    gap: 0.5%;
+  }
+
+  .keyboard__contener{
+    margin-bottom: 10%;
+  }
+}
+
+@media only screen and (max-width: 500px){
+  .gallows{
+    margin-top: 30%;
+  }
+
+  .word__contener{
+    font-size: pxToRem(40);
+    gap: 0.2%;
+  }
+
+  .keyboard{
+    &__contener{
+      gap: 0.5%;
+    }
+
+    &__btn{
+      width: 80%;
+    }
+  }
+}

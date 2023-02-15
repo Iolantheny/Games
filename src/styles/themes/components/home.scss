@@ -1,0 +1,104 @@
+.home{
+    width: 100vw;
+    height: 100vh;
+    @include Background("./../../images/home_back.jpg");
+    @include Flex;
+    @include Center;
+    flex-wrap: wrap;
+
+    div{
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        color: white; 
+        font-family: $f-PressStart;
+
+        h1{
+           
+           font-size: pxToRem(70);
+           margin-top: 1%;
+           letter-spacing: 25px;
+        }
+
+        p{
+            font-size: pxToRem(30);
+            margin-bottom: 0;
+        }
+    }
+
+    &__links{
+        @include Flex;
+        @include Center;
+        align-self: flex-start;
+        flex-wrap: wrap;
+
+        button{
+            width: 20%;
+            background: rgb(78,199,237);
+            background: radial-gradient(circle, rgba(78,199,237,1) 0%, rgba(70,19,147,1) 100%);
+            border: 3px solid white;
+            border-radius: 15px;
+            padding: 1%;
+            transition: all 0.5s ease;
+            cursor: pointer;
+            margin: 0 5%;
+
+            a{
+                color: white; 
+                font-size: pxToRem(23);
+            }
+
+            &:hover{
+                background: rgb(78,199,237);
+                background: radial-gradient(circle, rgba(78,199,237,1) 50%, rgba(70,19,147,1) 100%);
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1050px){
+    .home__links button{
+        width: 30%;
+        padding: 1.5%;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .home__links button{
+        height: 100px;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .home__links button{
+        width: 50%;
+        padding: 2%;
+    }
+}
+
+@media only screen and (max-width: 470px){
+    .home div{
+        p{
+            font-size: pxToRem(22);
+        }
+
+        h1{
+            font-size: pxToRem(50);
+        }
+    } 
+
+    .home__links button{
+        margin-bottom: 8%;
+    }
+}
+
+@media only screen and (max-width: 350px){
+    .home div h1{
+        font-size: pxToRem(40);
+    }
+
+    .home__links button{
+        width: 70%;
+    }
+}

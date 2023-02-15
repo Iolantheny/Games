@@ -1,0 +1,71 @@
+.error{
+    @include Background("./../../images/404_back.jpg");   
+    width: 100vw;
+    height: 100vh;
+    @include Flex;
+    @include Center;
+
+    div{
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        color: white; 
+        font-family: $f-PressStart;
+
+        h1{
+            font-size: pxToRem(70);
+            letter-spacing: 25px;
+            margin: 0;
+        }
+
+        p{
+            margin: 1% auto 3%;
+            color: $c-RipeLemons;
+        }
+
+        a{
+            text-decoration: none;
+            color: white;
+            font-size: pxToRem(20);
+            position: relative;
+
+            &::after{
+                content: "❱❱";
+                color: $c-RipeLemons;
+                margin: 1%;
+                font-size: pxToRem(30);
+                position: absolute;
+                top: -60%;
+                right: -18%;
+            }
+
+            &:hover{
+                letter-spacing: 2px;
+
+                &::after{
+                letter-spacing: 5px;
+            }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 450px){
+    .error div{
+        h1{
+            font-size: pxToRem(50);
+        }
+
+        p{
+            font-size: pxToRem(16);
+        }
+
+        a{
+            font-size: pxToRem(17);
+            
+            &::after{
+                font-size: pxToRem(25);
+            }
+        }
+    } 
+}

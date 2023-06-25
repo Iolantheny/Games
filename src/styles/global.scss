@@ -3,37 +3,49 @@
 @import "./normalize.scss";
 @import "./variables.scss";
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-body{
-    overflow-x: hidden;
+body {
+  overflow-x: hidden;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
-.link-back{
-    text-decoration: none;
-    color: white;
-    font-size: pxToRem(60);
-    top: 5%;
-    left: 5%;
-    position: absolute;
+.link-back {
+  text-decoration: none;
+  color: white;
+  font-size: pxToRem(60);
+  top: 5%;
+  left: 5%;
+  position: absolute;
 
-    &:hover{
-        transform: scale(1.1);
-    }
+  &:hover {
+    transform: scale(1.1);
+  }
 
-    &:hover::before{
-        content: "❮";
-    }
+  &:hover::before {
+    content: "❮";
+  }
 }
 
-.black{
-    color: black;
+.black {
+  color: black;
+}
+
+.btn-active {
+  background-color: $c-Malachite !important;
+}
+
+.correct-field {
+  background-color: $c-Apple !important;
+}
+
+.wrong-field {
+  background-color: $c-Valencia !important;
 }

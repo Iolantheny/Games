@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "gatsby";
+import BackLink from "../components/BackLink";
 
 type BoardProps = {
   value: string;
@@ -74,9 +74,7 @@ const TicTacToe = () => {
 
   return (
     <div className="tictactoe">
-      <Link to="/" className="link-back">
-        ❮
-      </Link>
+      <BackLink />
       <h1>Tic Tac Toe</h1>
       <section className="board">
         <Tile value={board[0]} handleClick={() => handleClick(0)} />

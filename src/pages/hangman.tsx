@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Link } from "gatsby";
+import BackLink from "../components/BackLink";
 import Words from "./../data/wordList.json";
 import Gallows from "./../components/Gallows";
 import HangmanWord from "./../components/HangmanWord";
@@ -47,9 +47,7 @@ const Hangman = () => {
 
   return (
     <div className="hangman">
-      <Link to="/" className="link-back black">
-        ❮
-      </Link>
+      <BackLink className="black" />
       <div className={`status ${Loser ? "red" : ""}`}>
         {Winner && "WINNER!"}
         {Loser && "LOSER"}

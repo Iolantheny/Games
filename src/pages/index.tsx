@@ -1,8 +1,7 @@
-import * as React from "react"
-import type { HeadFC, PageProps } from "gatsby"
-import "./../styles/themes/theme.scss"
-import { Link } from "gatsby"
-
+import * as React from "react";
+import type { HeadFC, PageProps } from "gatsby";
+import "./../styles/themes/theme.scss";
+import { Link } from "gatsby";
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
@@ -18,11 +17,14 @@ const IndexPage: React.FC<PageProps> = () => {
         <button>
           <Link to="/hangman">Hangman</Link>
         </button>
+        <button>
+          <Link to="/whack-a-mole">Whack A Mole</Link>
+        </button>
       </div>
     </main>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
 
-export const Head: HeadFC = () => <title>Games</title>
+export const Head: HeadFC = () => <title>Games</title>;

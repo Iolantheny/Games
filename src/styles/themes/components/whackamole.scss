@@ -1,0 +1,154 @@
+.whackamole {
+  @include Background("./../../images/moles.jpg");
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+  font-family: $f-Bungee;
+  color: white;
+
+  &__content {
+    @include Flex();
+    @include Center();
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    min-height: 100vh;
+
+    &--btns {
+      -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: pxToRem(35);
+      margin: 5%;
+      -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+      text-align: center;
+    }
+
+    p {
+      font-size: pxToRem(28);
+      flex-basis: 100%;
+      text-align: center;
+    }
+
+    button {
+      font-size: pxToRem(25);
+      width: 15%;
+      padding: 1%;
+      border: 2px solid white;
+      border-radius: 10px;
+      background-color: $c-Crete;
+      color: white;
+      margin: 5% 2%;
+      cursor: pointer;
+    }
+  }
+
+  &__start {
+    background-color: $c-Cerulean !important;
+    margin-top: 0 !important;
+  }
+
+  &__footer {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    text-decoration: none;
+    color: $c-Black;
+  }
+}
+
+.molegame {
+  @include Flex();
+
+  &__settings {
+    flex-basis: 30%;
+
+    div {
+      background-color: $c-Cerulean;
+      border: 2px solid white;
+      border-radius: 15px;
+      padding: 5%;
+      margin: 10%;
+    }
+  }
+  &__field__container {
+    display: flex;
+    flex-wrap: wrap;
+    @include Center();
+    flex-basis: 50%;
+  }
+
+  &__field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $c-Sandrift;
+    border-radius: 8px;
+    width: 100px;
+    height: 100px;
+    margin: 1%;
+    cursor: pointer;
+  }
+
+  &__result {
+    @include Flex();
+    flex-wrap: wrap;
+    @include Center();
+    margin-bottom: 15%;
+
+    button {
+      flex-basis: 30%;
+      padding: 1%;
+      background-color: $c-Cerulean;
+    }
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  .molegame__field__container {
+    flex-basis: 70%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .whackamole__content button {
+    width: 25%;
+  }
+  .molegame__field {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .whackamole__content button {
+    width: 50%;
+  }
+
+  .molegame {
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+
+    &__settings {
+      flex-basis: 100%;
+    }
+
+    &__field__container {
+      flex-basis: 100%;
+      margin-bottom: 15%;
+    }
+
+    &__result button {
+      flex-basis: 50%;
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .whackamole__content h1 {
+    margin-top: 35%;
+  }
+}

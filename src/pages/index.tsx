@@ -20,6 +20,9 @@ const IndexPage: React.FC<PageProps> = () => {
         <button>
           <Link to="/whack-a-mole">Whack A Mole</Link>
         </button>
+        <button>
+          <Link to="/memo">Memo</Link>
+        </button>
       </div>
     </main>
   );

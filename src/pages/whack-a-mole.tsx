@@ -3,6 +3,14 @@ import BackLink from "../components/BackLink";
 import Button from "./../components/Button";
 import MolesGame from "./../components/MolesGame";
 
+type ActiveProps = {
+  value: number;
+  label: string;
+  time: number;
+  mole: number;
+  isActive: boolean;
+};
+
 const WhackAMole = () => {
   const Difficulty = [
     {
@@ -29,15 +37,15 @@ const WhackAMole = () => {
   ];
   const [difficulty, setDifficulty] = useState(Difficulty);
   const findActive = difficulty.find((option) => option.isActive === true);
-  const [game, setGame] = useState(false);
-  const [activeOption, setActiveOption] = useState(findActive);
-  const [score, setScore] = useState(0);
+  const [game, setGame] = useState<boolean>(false);
+  const [activeOption, setActiveOption] = useState<ActiveProps>(findActive);
+  const [score, setScore] = useState<number>(0);
 
   useEffect(() => {
     setActiveOption(findActive);
   }, [difficulty, findActive]);
 
-  const handleClick = (value) => {
+  const handleClick = (value: number) => {
     setDifficulty(
       difficulty.map((option) => {
         return { ...option, isActive: option.value === value };

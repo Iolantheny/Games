@@ -1,0 +1,39 @@
+.memo {
+  @include Background("./../../images/memo.jpg");
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+  font-family: $f-Belanosima;
+
+  h1 {
+    font-size: pxToRem(45);
+    margin: 0;
+    padding-top: 5%;
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    text-align: center;
+    color: $c-ElectricViolet;
+  }
+
+  button {
+    font-size: pxToRem(30);
+    border: 5px solid $c-ElectricViolet;
+    border-radius: 15px;
+    color: $c-ElectricViolet;
+    width: 20%;
+    background-color: $c-White;
+    padding: 2%;
+    cursor: pointer;
+    margin: 10% auto;
+    @include Flex();
+    @include Center();
+  }
+
+  &__footer {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    text-decoration: none;
+    color: $c-Black;
+  }
+}

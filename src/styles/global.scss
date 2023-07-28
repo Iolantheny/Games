@@ -44,8 +44,14 @@ a {
 
 .correct-field {
   background-color: $c-Apple !important;
+  background-image: none !important;
 }
 
 .wrong-field {
   background-color: $c-Valencia !important;
+}
+
+.field-clicked {
+  background-color: $c-Heather !important;
+  background-image: none !important;
 }

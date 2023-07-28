@@ -1,3 +1,15 @@
+%box {
+  border: 5px solid $c-ElectricViolet;
+  border-radius: 15px;
+  color: $c-ElectricViolet;
+  width: 20%;
+  background-color: $c-White;
+  padding: 2%;
+  margin: 10% auto;
+  @include Flex();
+  @include Center();
+}
+
 .memo {
   @include Background("./../../images/memo.jpg");
   width: 100vw;
@@ -16,17 +28,70 @@
   }
 
   button {
-    font-size: pxToRem(30);
-    border: 5px solid $c-ElectricViolet;
-    border-radius: 15px;
-    color: $c-ElectricViolet;
-    width: 20%;
-    background-color: $c-White;
-    padding: 2%;
+    @extend %box;
     cursor: pointer;
-    margin: 10% auto;
+    font-size: pxToRem(30);
+  }
+
+  &__settings {
+    width: 70%;
+    margin: 0 auto;
+    @include Flex();
+
+    &-timer {
+      @extend %box;
+      font-size: pxToRem(36);
+    }
+  }
+
+  &__board {
     @include Flex();
     @include Center();
+    margin: 2% auto 0;
+    flex-wrap: wrap;
+    width: 80%;
+
+    &-field {
+      width: 150px;
+      height: 150px;
+      background-image: url("./../../images/back-card.png");
+      background-position: center;
+      background-size: contain;
+      background-color: $c-White;
+      border-radius: 15px;
+      font-size: pxToRem(65);
+      @include Flex();
+      @include Center();
+      margin: 1%;
+      cursor: pointer;
+    }
+  }
+
+  &__result {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $c-White;
+    border: 5px solid $c-ElectricViolet;
+    border-radius: 15px;
+    text-align: center;
+    padding: 2%;
+    color: $c-ElectricViolet;
+    @include Flex();
+    flex-wrap: wrap;
+
+    p {
+      font-size: pxToRem(30);
+      margin: 1% auto;
+      flex-basis: 100%;
+    }
+
+    button {
+      width: 35%;
+      height: 30%;
+    }
   }
 
   &__footer {

@@ -1,29 +1,14 @@
 import React, { useState } from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { StaticImage } from "gatsby-plugin-image";
+import { useDispatch } from "react-redux";
+import { increment } from "../store/features/scoreReducer";
 
-type Props = {
-  score: number;
-  setScore: (score: number) => number;
-};
-
-const FieldWithMole = ({ setScore, score }: Props) => {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        img: file(relativePath: { eq: "moleIcon.png" }) {
-          childImageSharp {
-            gatsbyImageData
-          }
-        }
-      }
-    `
-  );
-
+const FieldWithMole = () => {
+  const dispatch = useDispatch();
   const [correct, setCorrect] = useState(false);
 
   const CorrectClick = () => {
-    setScore(score + 1);
+    dispatch(increment());
     setCorrect(true);
   };
 
@@ -32,10 +17,7 @@ const FieldWithMole = ({ setScore, score }: Props) => {
       className={`molegame__field ${correct ? "correct-field" : ""}`}
       onClick={() => CorrectClick()}
     >
-      <GatsbyImage
-        image={data.img.childImageSharp.gatsbyImageData}
-        alt="mole"
-      />
+      <StaticImage src="./../images/mole-icon.png" alt="mole" />
     </div>
   );
 };

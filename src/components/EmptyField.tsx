@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { decrement } from "../store/features/scoreReducer";
 
-type Props = {
-  score: number;
-  setScore: (score: number) => number;
-};
-
-const EmptyField = ({ setScore, score }: Props) => {
+const EmptyField = () => {
+  const dispatch = useDispatch();
   const [wrong, setWrong] = useState(false);
 
   useEffect(() => {
@@ -13,7 +11,7 @@ const EmptyField = ({ setScore, score }: Props) => {
   });
 
   const CorrectClick = () => {
-    setScore(score - 1);
+    dispatch(decrement());
     setWrong(true);
   };
 

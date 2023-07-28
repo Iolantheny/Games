@@ -77,15 +77,11 @@ const TicTacToe = () => {
       <BackLink />
       <h1>Tic Tac Toe</h1>
       <section className="board">
-        <Tile value={board[0]} handleClick={() => handleClick(0)} />
-        <Tile value={board[1]} handleClick={() => handleClick(1)} />
-        <Tile value={board[2]} handleClick={() => handleClick(2)} />
-        <Tile value={board[3]} handleClick={() => handleClick(3)} />
-        <Tile value={board[4]} handleClick={() => handleClick(4)} />
-        <Tile value={board[5]} handleClick={() => handleClick(5)} />
-        <Tile value={board[6]} handleClick={() => handleClick(6)} />
-        <Tile value={board[7]} handleClick={() => handleClick(7)} />
-        <Tile value={board[8]} handleClick={() => handleClick(8)} />
+        {board.map((_, index) => {
+          return (
+            <Tile value={board[index]} handleClick={() => handleClick(index)} />
+          );
+        })}
       </section>
       <ResultGame />
       <button className="reset" onClick={() => Reset()}>

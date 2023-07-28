@@ -1,56 +1,27 @@
 import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../store";
+import { toggleGame } from "../store/actions";
+import { setDifficulty } from "./../store/features/difficultyReducer";
 import BackLink from "../components/BackLink";
 import Button from "./../components/Button";
 import MolesGame from "./../components/MolesGame";
 
-type ActiveProps = {
-  value: number;
-  label: string;
-  time: number;
-  mole: number;
-  isActive: boolean;
-};
-
-const WhackAMole = () => {
-  const Difficulty = [
-    {
-      value: 1,
-      label: "easy",
-      time: 1,
-      mole: 1,
-      isActive: true,
-    },
-    {
-      value: 2,
-      label: "medium",
-      time: 2,
-      mole: 2,
-      isActive: false,
-    },
-    {
-      value: 3,
-      label: "hard",
-      time: 3,
-      mole: 3,
-      isActive: false,
-    },
-  ];
-  const [difficulty, setDifficulty] = useState(Difficulty);
+const WhackAMole: React.FC = () => {
+  const isGameOn = useSelector((state: RootState) => state.game.isGameOn);
+  const difficulty = useSelector(
+    (state: RootState) => state.difficulty.difficultyOptions
+  );
+  const dispatch = useDispatch();
   const findActive = difficulty.find((option) => option.isActive === true);
-  const [game, setGame] = useState<boolean>(false);
-  const [activeOption, setActiveOption] = useState<ActiveProps>(findActive);
-  const [score, setScore] = useState<number>(0);
+  const [activeOption, setActiveOption] = useState<any>(findActive);
 
   useEffect(() => {
     setActiveOption(findActive);
   }, [difficulty, findActive]);
 
   const handleClick = (value: number) => {
-    setDifficulty(
-      difficulty.map((option) => {
-        return { ...option, isActive: option.value === value };
-      })
-    );
+    dispatch(setDifficulty(value));
   };
 
   return (
@@ -58,7 +29,7 @@ const WhackAMole = () => {
       <BackLink />
       <div className="whackamole__content">
         <h1>Whack A Mole!</h1>
-        {!game && (
+        {!isGameOn && (
           <>
             <p>Select Difficulty</p>
             <div className="whackamole__content--btns">
@@ -73,19 +44,15 @@ const WhackAMole = () => {
                 );
               })}
             </div>
-            <button onClick={() => setGame(true)} className="whackamole__start">
+            <button
+              onClick={() => dispatch(toggleGame(!isGameOn))}
+              className="whackamole__start"
+            >
               START
             </button>
           </>
         )}
-        {game && (
-          <MolesGame
-            activeOption={activeOption}
-            score={score}
-            setScore={setScore}
-            setGame={setGame}
-          />
-        )}
+        {isGameOn && <MolesGame activeOption={activeOption} />}
       </div>
       <a
         href="http://www.freepik.com"
